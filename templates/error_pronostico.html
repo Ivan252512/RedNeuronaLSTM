@@ -1,0 +1,99 @@
+{% extends 'graph_base.html' %}
+{% load static %}
+
+{% block titulo %}{% endblock titulo %}
+
+
+<!--Primera Gráfica-->
+{% block grafica %}  
+
+
+    <!-- Bar Chart -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h3>Periodo</h3>
+            <ul >      
+                <div class="row">
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a  href="{% url 'error_pronostico' 'DIAS' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Días</span></a>
+                        </li>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a href="{% url 'error_pronostico' 'SEMANAS' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Semanas</span></a>
+                        </li>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a  href="{% url 'error_pronostico' 'MESES' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Meses</span></a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+
+
+    {% if objects %}
+        {% for i in objects %}
+              <div class="card shadow mb-4">
+                <div class="card-body">
+            <div class="row">
+                <div class="col-xl-4 col-lg-2">
+                    Promedio final DAM: {{i.dam}}
+                </div>
+                <div class="col-xl-4 col-lg-2">
+                    Promedio final PEMA: {{i.pema}} %
+                </div>
+                <div class="col-xl-4 col-lg-2">
+                    Promedio final RMSE: {{i.rmse}}
+                </div>
+            </div>
+            </div>
+            </div>
+
+            <div class='card shadow mb-4'>
+            <div class='card-header py-3'>
+                <h6 class='m-0 font-weight-bold text-primary'>DAM</h6>
+            </div>
+                <img src="/media/{{i.dam_dir}}" width='100%'>
+                <div class='text-center'>
+                </div>
+                <br>
+                <center>Figura 1. DAM</center>
+            </div>
+
+            
+            <div class='card shadow mb-4'>
+            <div class='card-header py-3'>
+                <h6 class='m-0 font-weight-bold text-primary'>PEMA</h6>
+            </div>
+                <img src="/media/{{i.pema_dir}}" width='100%'>
+                <div class='text-center'>
+                </div>
+                <br>
+                <center>Figura 2. PEMA</center>
+            </div>
+                        
+            <div class='card shadow mb-4'>
+            <div class='card-header py-3'>
+                <h6 class='m-0 font-weight-bold text-primary'>RMSE</h6>
+            </div>
+                <img src="/media/{{i.rmse_dir}}" width='100%'>
+                <div class='text-center'>
+                </div>
+                <br>
+                <center>Figura 3. RMSE</center>
+            </div>
+        {% endfor %}
+    {% endif %}
+{% endblock grafica %}
