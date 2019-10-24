@@ -31,7 +31,8 @@ from .views import (
                     ServicioDeleteView,
                     VentasView,
                     VentaUpdateView,
-                    VentaDeleteView)
+                    VentaDeleteView,
+                    RedesView)
 
 urlpatterns = [
     path('ventas_pronostico/<str:periodo>/', VentasPronostico.as_view(), name='ventas_pronostico'),
@@ -46,6 +47,7 @@ urlpatterns = [
     path('venta_update/<int:pk>', VentaUpdateView.as_view(), name='venta_update'),
     path('venta_delete/<int:pk>', VentaDeleteView.as_view(), name='venta_delete'),
     path('ventas', VentasView.as_view(), name='ventas'),
+    path('redes', RedesView.as_view(), name='redes'),
 
     #Sign up
     path('add_user/', UserCreateView.as_view(), name='add_user'),

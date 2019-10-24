@@ -107,7 +107,16 @@ class ServicioUpdateView(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class ServicioDeleteView(DeleteView):
     model = Servicio
-    succes_url = reverse_lazy('servicios')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs['pk']
+        queryset = Servicio.objects.get(id=pk)
+        context['object'] = queryset
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('servicios')
 
 @method_decorator(login_required, name='dispatch')
 class ServiciosView(TemplateView):
@@ -128,6 +137,16 @@ class VentasView(TemplateView):
         queryset = RegistroVenta.objects.all()
         context['objects'] = queryset
         return context
+
+@method_decorator(login_required, name='dispatch')
+class RedesView(TemplateView):
+    template_name = "redes.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        queryset = RedNeuronalResultados.objects.all()
+        context['objects'] = queryset
+        return context
         
 
 @method_decorator(login_required, name='dispatch')
@@ -146,7 +165,16 @@ class VentaUpdateView(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class VentaDeleteView(DeleteView):
     model = RegistroVenta
-    succes_url = reverse_lazy('ventas')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pk = self.kwargs['pk']
+        queryset = RegistroVenta.objects.get(id=pk)
+        context['object'] = queryset
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('ventas')
 
 @method_decorator(login_required, name='dispatch')
 class EntrenarRedView(CreateView):
