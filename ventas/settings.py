@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'ventas.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'ventas',
-        'USER': 'root',
+        'NAME': 'Ivan252512$ventas',
+        'USER': 'Ivan252512',
         'PASSWORD': 'sarampion25',
-        'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
+        'HOST': 'Ivan252512.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
