@@ -39,8 +39,6 @@ def train_nn(data, data_date, look_back, neurons, epochs, time_delta, data_type,
     data = np.array(data_array)
     # Convert data frame into float arrays
     data = data.astype('float32')
-
-    datos = data
     
 
     # Set seed for reproducibility
@@ -120,12 +118,12 @@ def train_nn(data, data_date, look_back, neurons, epochs, time_delta, data_type,
     plt.savefig(os.path.join(settings.MEDIA_ROOT, data_type+'_'+time_delta+'_'+'prediccion.png'), dpi=400)
 
     #RMSE
-    rmse = math.sqrt(mean_squared_error(datos[look_back+1:], trainPredict))
+    rmse = math.sqrt(mean_squared_error(data[look_back:len(data_date)-1], trainPredict))
     
     #DAM
     all_dam = []
     for i in range(len(trainPredict)):
-        all_dam.append(abs(trainPredict[i]-datos[look_back+1+i]))
+        all_dam.append(abs(trainPredict[i]-data[look_back+i]))
 
     plt.figure(figsize=(20,10))
     plt.title('DAM')
@@ -141,7 +139,7 @@ def train_nn(data, data_date, look_back, neurons, epochs, time_delta, data_type,
     #RMSE
     all_rmse = []
     for i in range(len(trainPredict)):
-        all_rmse.append((trainPredict[i]-datos[look_back+1+i])**2)
+        all_rmse.append((trainPredict[i]-data[look_back+i])**2)
 
     plt.figure(figsize=(20,10))
     plt.title('RMSE')
@@ -155,8 +153,9 @@ def train_nn(data, data_date, look_back, neurons, epochs, time_delta, data_type,
     #PEMA
     all_pema = []
     for i in range(len(all_dam)):
-        all_pema.append(abs(all_dam[i]/datos[look_back+1+i]))
-
+        new_data = [i if i!=0 else np.mean(np.array(data)) for i in data]
+        all_pema.append((all_dam[i])/(new_data[look_back+i]))
+    
     plt.figure(figsize=(20,10))
     plt.title('PEMA')
     plt.xlabel('Fechas')
@@ -172,7 +171,8 @@ def train_nn(data, data_date, look_back, neurons, epochs, time_delta, data_type,
     pema_dir = data_type+'_'+time_delta+'_'+'pema.png'
     rmse_dir = data_type+'_'+time_delta+'_'+'rmse.png'
 
-    pema = dam / np.mean(np.array(datos[look_back+1:]))
+
+    pema = np.mean(np.array(all_pema)) 
 
     return rmse, dam , pema, eval_dir, pred_dir, dam_dir, pema_dir, rmse_dir
 

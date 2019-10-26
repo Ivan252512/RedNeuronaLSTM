@@ -216,12 +216,9 @@ class EntrenarRedView(CreateView):
             data = populate_days(data_date, data_price)
             future = get_months(data[2], data[1])[0]
             data = get_months(data[0], data[1])
-        #else:
-        #   data = get_nn_tipos(data_date, data_type)
  
-        pool = Pool(processes=1)   
+        pool = Pool(processes=8)   
         rmse, dam, pema, eval_dir, pred_dir, dam_dir, pema_dir, rmse_dir = pool.apply(train_nn, [data[1], data[0], look_back, neuronas, epocas, periodo, clasificacion, future])
-
 
         form.instance.dam = dam
         form.instance.rmse = rmse
