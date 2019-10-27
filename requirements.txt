@@ -2,6 +2,7 @@ absl-py==0.8.1
 astor==0.8.0
 cycler==0.10.0
 DateTime==4.3
+dj-database-url==0.5.0
 Django==2.2.6
 django-bootstrap-modal-forms==1.4.4
 django-bootstrap3==11.1.0
@@ -9,6 +10,7 @@ et-xmlfile==1.0.1
 gast==0.2.2
 google-pasta==0.1.7
 grpcio==1.24.1
+gunicorn==19.9.0
 h5py==2.10.0
 jdcal==1.4.1
 joblib==0.14.0
@@ -18,12 +20,12 @@ Keras-Preprocessing==1.1.0
 kiwisolver==1.1.0
 Markdown==3.1.1
 matplotlib==3.1.1
-mysqlclient==1.4.4
 numpy==1.17.2
 openpyxl==3.0.0
 opt-einsum==3.1.0
 pandas==0.25.1
 protobuf==3.10.0
+psycopg2==2.8.4
 pyparsing==2.4.2
 python-dateutil==2.8.0
 pytz==2019.3
@@ -38,5 +40,6 @@ tensorflow==1.14.0
 tensorflow-estimator==1.14.0
 termcolor==1.1.0
 Werkzeug==0.16.0
+whitenoise==4.1.4
 wrapt==1.11.2
 zope.interface==4.6.0
