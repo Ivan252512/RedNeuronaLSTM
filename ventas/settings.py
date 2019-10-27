@@ -77,12 +77,12 @@ WSGI_APPLICATION = 'ventas.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', 
-        'NAME': 'Ivan252512$ventas',
-        'USER': 'Ivan252512',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ventas',
+        'USER': 'postgres',
         'PASSWORD': 'sarampion25',
-        'HOST': 'Ivan252512.mysql.pythonanywhere-services.com',   # Or an IP Address that your DB is hosted on
-        'PORT': '3306',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
