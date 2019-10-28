@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Servicio(models.Model):
-    servicio = models.CharField(max_length=200)
+    servicio = models.CharField(max_length=50)
 
 
 class RegistroVenta(models.Model):
@@ -12,10 +12,10 @@ class RegistroVenta(models.Model):
     )
    
     fecha = models.DateField(auto_now=False, auto_now_add=False)
-    empresa = models.CharField(max_length=200)
+    empresa = models.CharField(max_length=50)
     ruc = models.CharField(max_length=11)
     precio = models.FloatField()
-    tipo = models.CharField(max_length=200, choices=(CLASIFICACION))
+    tipo = models.CharField(max_length=50, choices=(CLASIFICACION))
     
 class RedNeuronalResultados(models.Model):
     CLASIFICACION = (
@@ -29,7 +29,7 @@ class RedNeuronalResultados(models.Model):
     )
 
 
-    clasificacion = models.CharField(max_length=200, choices=(CLASIFICACION))
+    clasificacion = models.CharField(max_length=50, choices=(CLASIFICACION))
     periodo = models.CharField(max_length=50, choices=(PERIODO))
     dam = models.FloatField( blank=True, null=True)
     pema = models.FloatField( blank=True, null=True)
