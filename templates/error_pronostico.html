@@ -7,7 +7,41 @@
 <!--Primera Gráfica-->
 {% block grafica %}  
 
+{% if 'productos' in request.path %}
+    <!-- Bar Chart -->
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h3>Periodo</h3>
+            <ul >      
+                <div class="row">
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a  href="{% url 'productos_error_pronostico' 'DIAS' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Días</span></a>
+                        </li>
+                    </div>
 
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a href="{% url 'productos_error_pronostico' 'SEMANAS' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Semanas</span></a>
+                        </li>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-3">
+                        <li >
+                            <a  href="{% url 'productos_error_pronostico' 'MESES' %}">
+                                <i class="fas fa-fw fa-chart-area"></i>
+                                <span>Meses</span></a>
+                        </li>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+{% else %}
     <!-- Bar Chart -->
     <div class="card shadow mb-4">
         <div class="card-body">
@@ -41,7 +75,7 @@
             </ul>
         </div>
     </div>
-
+{% endif %}
 
     {% if objects %}
         {% for i in objects %}

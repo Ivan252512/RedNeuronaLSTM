@@ -41,69 +41,56 @@
                 Menú
             </div>
 
-            <!-- Nav Item - Charts -->
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'registro_venta' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Registro de Venta</span></a>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Productos</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Productos</h6>
+                        <a class="collapse-item" href="{% url 'productos_registro_venta' %}">Registro de Venta</a>
+                        <a class="collapse-item" href="{% url 'productos_ventas' %}">Ventas</a>
+                        <a class="collapse-item" href="{% url 'productos_Productos' %}">Productos</a>
+                        <a class="collapse-item" href="{% url 'productos_Producto' %}">Añadir Producto</a>
+                        <a class="collapse-item" href="{% url 'productos_ventas_pronostico' 'DIAS' %}">Ventas vs
+                            Pronóstico G.</a>
+                        <a class="collapse-item" href="{% url 'productos_pronostico_compra' 'DIAS' %}">Pronóstico de
+                            Venta G.</a>
+                        <a class="collapse-item" href="{% url 'productos_error_pronostico' 'DIAS' %}">Error Pronóstico
+                            Ventas.</a>
+                        <a class="collapse-item" href="{% url 'productos_entrenar_red' %}">Entrenar Red</a>
+                        <a class="collapse-item" href="{% url 'productos_redes' %}">Redes</a>
+                    </div>
+                </div>
             </li>
 
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'ventas' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Ventas</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'servicios' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Servicios</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'servicio' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Añadir Servicio</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'ventas_pronostico' 'DIAS' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Ventas vs Pronóstico General</span></a>
-            </li>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'pronostico_compra' 'DIAS' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pronóstico General de Venta</span></a>
-            </li>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'error_pronostico' 'DIAS' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Error del Pronóstico Ventas General</span></a>
-            </li>
-
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'pronostico_general' 'DIAS' 'AUDITORIA' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Pronóstico por Servicio</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'entrenar_red' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Entrenar Red</span></a>
-            </li>
-
-            <li class="nav-item active">
-                <a class="nav-link" href="{% url 'redes' %}">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Redes</span></a>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    aria-expanded="true" aria-controls="collapsePages">
+                    <i class="fas fa-fw fa-folder"></i>
+                    <span>Ventas</span>
+                </a>
+                <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Servicios</h6>
+                        <a class="collapse-item" href="{% url 'registro_venta' %}">Registro de Venta</a>
+                        <a class="collapse-item" href="{% url 'ventas' %}">Ventas</a>
+                        <a class="collapse-item" href="{% url 'servicios' %}">Servicios</a>
+                        <a class="collapse-item" href="{% url 'servicio' %}">Añadir Servicio</a>
+                        <a class="collapse-item" href="{% url 'ventas_pronostico' 'DIAS' %}">Ventas vs Pronóstico G.</a>
+                        <a class="collapse-item" href="{% url 'pronostico_compra' 'DIAS' %}">Pronóstico de Venta G.</a>
+                        <a class="collapse-item" href="{% url 'error_pronostico' 'DIAS' %}">Error Pronóstico Ventas
+                            G.</a>
+                        <a class="collapse-item" href="{% url 'pronostico_general' 'DIAS' 'AUDITORIA' %}">Pronóstico por
+                            Servicio</a>
+                        <a class="collapse-item" href="{% url 'entrenar_red' %}">Entrenar Red</a>
+                        <a class="collapse-item" href="{% url 'redes' %}">Redes</a>
+                    </div>
+                </div>
             </li>
 
             <!-- Divider -->
@@ -126,10 +113,21 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
+
                     <!-- Sidebar Toggle (Topbar) -->
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+
+                    <h2>
+                        
+                        {% if 'productos' in request.path %}
+                            Productos
+                        {% else %}
+                            Servicios
+                        {% endif %}
+                            
+                    </h2>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">

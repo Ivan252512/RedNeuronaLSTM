@@ -70,4 +70,4 @@ def get_all_sales(array_books):
 date, price, description, firm, ruc, all_dates_prices = get_all_sales(books_names)
 
 for i in range(len(date)):
-    RegistroVenta.objects.create(fecha=date[i], precio=price[i], tipo=description[i], empresa=firm, ruc=ruc[i])
+    RegistroVenta.objects.create(fecha=date[i], precio=price[i], tipo=description[i], empresa=firm[i], ruc=ruc[i])
