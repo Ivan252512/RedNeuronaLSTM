@@ -8,7 +8,7 @@ class Producto(models.Model):
 
 class RegistroVenta(models.Model):
     CLASIFICACION = (
-        (i.producto, i.producto) for i in Producto.objects.all()
+        #(i.producto, i.producto) for i in Producto.objects.all()
     ) 
    
     fecha = models.DateField(auto_now=False, auto_now_add=False)

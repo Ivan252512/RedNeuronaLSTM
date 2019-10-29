@@ -8,7 +8,7 @@ class Servicio(models.Model):
 
 class RegistroVenta(models.Model):
     CLASIFICACION = (
-        (i.servicio, i.servicio) for i in Servicio.objects.all()
+        #(i.servicio, i.servicio) for i in Servicio.objects.all()
     )
    
     fecha = models.DateField(auto_now=False, auto_now_add=False)
@@ -19,7 +19,7 @@ class RegistroVenta(models.Model):
     
 class RedNeuronalResultados(models.Model):
     CLASIFICACION = (
-        (i.servicio, i.servicio) for i in Servicio.objects.all().order_by('-id')
+        #(i.servicio, i.servicio) for i in Servicio.objects.all().order_by('-id')
     )
 
     PERIODO = (
